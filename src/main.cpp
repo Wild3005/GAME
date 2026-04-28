@@ -171,13 +171,17 @@ void draw_pra_cutscene();
 
 int main(){
     InitWindow(panjang_layar, lebar_layar, "MYGAME");
+    // Ensure relative asset paths work even if the game is launched from a different folder.
+    // Assets are referenced using paths like "../Asset_Game_IMG/..." which are valid when the
+    // working directory is the executable directory (typically build/).
+    ChangeDirectory(GetApplicationDirectory());
     ToggleFullscreen();
     SetTargetFPS(60);
 
     InitAudioDevice();
-    SFX_Shinra_Tensei[0] = LoadSound("/home/ichbinwil/game_project/Asset_Game_Sound/shinraa-tensei.mp3");
-    SFX_Shinra_Tensei[1] = LoadSound("/home/ichbinwil/game_project/Asset_Game_Sound/ytmp3free.mp3");
-    SFX_Shinra_Tensei[2] = LoadSound("/home/ichbinwil/game_project/Asset_Game_Sound/teleport-anime.mp3");
+    SFX_Shinra_Tensei[0] = LoadSound("../Asset_Game_Sound/shinraa-tensei.mp3");
+    SFX_Shinra_Tensei[1] = LoadSound("../Asset_Game_Sound/ytmp3free.mp3");
+    SFX_Shinra_Tensei[2] = LoadSound("../Asset_Game_Sound/teleport-anime.mp3");
 
 
     //initiation local
@@ -186,7 +190,7 @@ int main(){
     // int kondisi_bola_random = rand() % 20;
     // inisiasi_bola(kondisi_bola_random);
 
-    background = LoadImage("/home/ichbinwil/game_project/Asset_Game_IMG/30314886.jpg");
+    background = LoadImage("../Asset_Game_IMG/30314886.jpg");
 
     //variabel for texture
     Character[0] = LoadTexture("../Asset_Game_IMG/Stand_Player.png");
@@ -198,16 +202,16 @@ int main(){
     }
     // printf("texture load: id = %d, w = %d, h = %d",Character.id,Character.width, Character.height);
 
-    Character_L[0] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/Stand_L_player (20241213032636).png");
-    Character_L[1] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/Run_L_player1 (20241213031620).png");
-    Character_L[2] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/Run_L_player1 (20241213031620).png");
+    Character_L[0] = LoadTexture("../Asset_Game_IMG/Stand_L_player (20241213032636).png");
+    Character_L[1] = LoadTexture("../Asset_Game_IMG/Run_L_player1 (20241213031620).png");
+    Character_L[2] = LoadTexture("../Asset_Game_IMG/Run_L_player1 (20241213031620).png");
 
-    Cutscene[0] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes1 (20241213053332).png");
-    Cutscene[1] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes2 (20241213061254).png");
-    Cutscene[2] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes3 (20241213062927).png");
-    Cutscene[3] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes4 (20241213080443).png");
-    Cutscene[4] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes5 (20241213090353).png");
-    Cutscene[5] = LoadTexture("/home/ichbinwil/game_project/Asset_Game_IMG/eyes6 (20241213090252).png");
+    Cutscene[0] = LoadTexture("../Asset_Game_IMG/eyes1 (20241213053332).png");
+    Cutscene[1] = LoadTexture("../Asset_Game_IMG/eyes2 (20241213061254).png");
+    Cutscene[2] = LoadTexture("../Asset_Game_IMG/eyes3 (20241213062927).png");
+    Cutscene[3] = LoadTexture("../Asset_Game_IMG/eyes4 (20241213080443).png");
+    Cutscene[4] = LoadTexture("../Asset_Game_IMG/eyes5 (20241213090353).png");
+    Cutscene[5] = LoadTexture("../Asset_Game_IMG/eyes6 (20241213090252).png");
     while (!WindowShouldClose()) {
         deltatime = GetFrameTime();
 
